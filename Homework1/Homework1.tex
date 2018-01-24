@@ -4,6 +4,7 @@
 \usepackage{graphicx}
 \usepackage{array}
 \usepackage{amsmath}
+\usepackage{mathtools}
 \renewcommand{\baselinestretch}{1.0}
 \usepackage[letterpaper, margin=0.75in]{geometry}
 
@@ -11,5 +12,37 @@
 	\title{Homework1 for EECS 340}
 	\author{Yu Mi}
 	\maketitle
+\section{Warm-up: Big-Oh and Counting Primitive Operations}
+\emph{Show your work} on the following questions. Use the limit-based definitions of asymptotic notation on the ``Big-Oh Cheat Sheet'' on Canvas wherever applicable.
+\subsection{Solve R-1.20, R-1.22, and R-1.23 in the text}
+\subsubsection{R-1.20}
+	Show that $(n+1)^5$ is $O(n^5)$.
 
+	\emph{Proof:} Let $f(n)=(n+1)^5$ and $g(n)=n^5$ so that
+	\begin{equation*}
+	\begin{multlined}
+		\lim_{n\to\infty} \frac{f(n)}{g(n)}=\lim_{n\to\infty} \frac{(n+1)^5}{n^5}=\lim_{n\to\infty} \frac{n^5+5n^4+10n^3+10n^2+5n+1}{n^5}\\
+		=1+\lim_{n\to\infty}\frac{5}{n}+\frac{10}{n^2}+\frac{10}{n^3}+\frac{5}{n^4}+\frac{1}{n^5}=1
+	\end{multlined}
+	\end{equation*}
+
+	Since $0\leq1<\infty$, $(n+1)^5$ is $O(n^5)$.
+\subsubsection{R-1.22}
+	Show that $n$ is $o(n\log n)$.
+	
+	\emph{Proof:} Let $f(n)=n$ and $g(n)=n\log n$ so that
+	\begin{equation*}
+		\lim_{n\to\infty} \frac{f(n)}{g(n)}=\lim_{n\to\infty} \frac{n}{n\log n}=\lim_{n\to\infty} \frac{1}{\log n}=0
+	\end{equation*}
+	
+	Since $0=0$, $n$ is $o(n\log n)$.
+\subsubsection{R-1.23}
+	Show that $n^2$ is $\omega(n)$.
+	
+	\emph{Proof:} Let $f(n)=n^2$ and $g(n)=\omega(n)$ so that
+	\begin{equation*}
+		\lim_{n\to\infty} \frac{f(n)}{g(n)}=\lim_{n\to\infty} \frac{n^2}{n}=\lim_{n\to\infty} n=\infty
+	\end{equation*}
+	
+	Since $\infty = \infty$, $n^2$ is $\omega(n)$.
 \end{document}
