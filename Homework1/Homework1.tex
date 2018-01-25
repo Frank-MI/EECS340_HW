@@ -4,11 +4,13 @@
 \usepackage{graphicx}
 \usepackage{array}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{mathtools}
 \usepackage{algorithmicx}
 \usepackage{algpseudocode}
 \renewcommand{\baselinestretch}{1.0}
 \usepackage[letterpaper, margin=0.75in]{geometry}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
 
 \begin{document}
 	\title{Homework1 for EECS 340}
@@ -135,7 +137,44 @@
 	\begin{equation*}
 		C_2=2n\sum_{i=1}^{n^2} (i+1+2i+2i)=\frac{5}{2} n^4 + \frac{7}{2} n^2
 	\end{equation*}
+	
 	To sum up, the total units of time this algorithm will cost should be $time_{total} = C_1 + C_2 = \frac{5}{2}n^4+\frac{13}{2}n^2+3$. So that this algorithm is $\Theta(n^4)$
 \subsection{Explain why it is reasonable to ignore the overhead of a ranged \emph{for} loop when you derived the tight asymptotic runtime bounds in the previous question.}
 	\emph{Answer:} When calculating the runtime bounds of a loop, the overhead of such loop will cost a constant time of computation, while the loop body will cost $n$ times more than the overhead. As $n$ grows big enough, the overhead is always significantly smaller than the loop body. Thus, when we are deriving the asymptotic runtime bounds, we can ignore the overhead of a ranged loop.
+\section{A Challenging Sum}
+	Show that summation $\sum_{i=1}^{n} \ceil{\log_2(n/i)}$ is $O(n)$. You may assume that $n$ is a power of $2$.
+	
+	\emph{Answer:}
+	
+	\textbf{Base Case:} Show that the statements holds for $n=1$.
+	
+	When $n=1$, $\sum_{i=1}^{n} \ceil{\log_2(n/i)}=\ceil{\log_2(1)}=0$, and $n=1$, so we have $0\leq1$.
+	
+	\textbf{Inductive Step:} Show that if $\sum_{i=1}^{n} \ceil{\log_2(n/i)}\leq cn$ holds, then also $\sum_{i=1}^{2n} \ceil{\log_2(2n/i)}\leq c2n$ holds.
+	
+	Since we have $\sum_{i=1}^{n} \ceil{\log_2(n/i)}\leq cn$ holds, we can replace $n$ by $2n$, thus we have:
+	\begin{equation*}
+		\sum_{i=1}^{2n} \ceil{\log_2(2n/i)} = \sum_{i=1}^{2n} \ceil{\log_2(n/i)+1}=2n+\sum_{i=1}^{2n}\ceil{\log_2(n/i)}
+	\end{equation*}
+	
+	When $n<i\leq2n$, $0.5\leq(n/i)<1$. Thus $-1\leq\log_2(n/i)<0$, thus we have
+	\begin{equation*}
+		2n+\sum_{i=1}^{2n}\ceil{\log_2(n/i)} = 2n-1+\sum_{i=1}^{n}\ceil{\log_2(n/i)}\leq cn+2n-1
+	\end{equation*}
+	
+	For any constant $c>2$, we have $cn+2n-1\leq c2n$. Thereby that indeed $\sum_{i=1}^{2n} \ceil{\log_2(2n/i)}\leq c2n$ holds.
+	
+	Since both the base case and the inductive step have been performed, by mathematical induction, $\sum_{i=1}^{n} \ceil{\log_2(n/i)}$ is $O(n)$ holds for all $n$ that is a power of $2$. Q.E.D.
+	%Since $n$ is a power of $2$, we can assume that $n=2^t$, where $t$ is a positive integer. Thus we have:
+	%\begin{equation*}
+	%	\sum_{i=1}^{n} \ceil{\log_2(\frac{n}{i})}=\sum_{i=1}^{n} \ceil{\log_2(\frac{2^t}{i})}=\sum_{i=1}^{n}\ceil{\log_2(2^t)-\log_2(i)}=\sum_{i=1}^{n}\ceil{t-\log_2(i)}
+	%\end{equation*}
+	
+	%Since $i$ is a value from $1$ to $n$, we can assert that $0\leq\log_2(i)$. Thus we have:
+	%\begin{equation*}
+	%	\sum_{i=1}^{n}\ceil{t-\log_2(i)} \leq \sum_{i=1}^{n} \ceil{t} = tn = n\log_2(n)
+	%	\end{equation*}
+\section{Theory: Big-Oh and Derivatives}
+	In the following questions, suppose that $f,g : \mathbb{R} \to \mathbb{R}$ are differentiable and strictly increasing ($f'(x) >0$ and $g'(x)>0$ for all $x$). Prove the statement in each question, or construct a counterexample.
+\subsection{}
 \end{document}
