@@ -5,6 +5,8 @@
 \usepackage{array}
 \usepackage{amsmath}
 \usepackage{mathtools}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
 \renewcommand{\baselinestretch}{1.0}
 \usepackage[letterpaper, margin=0.75in]{geometry}
 
@@ -39,10 +41,101 @@
 \subsubsection{R-1.23}
 	Show that $n^2$ is $\omega(n)$.
 	
-	\emph{Proof:} Let $f(n)=n^2$ and $g(n)=\omega(n)$ so that
+	\emph{Proof:} Let $f(n)=n^2$ and $g(n)=n$ so that
 	\begin{equation*}
 		\lim_{n\to\infty} \frac{f(n)}{g(n)}=\lim_{n\to\infty} \frac{n^2}{n}=\lim_{n\to\infty} n=\infty
 	\end{equation*}
 	
 	Since $\infty = \infty$, $n^2$ is $\omega(n)$.
+\subsection{Intuitively, $2^x\in O(3^x)$, since $3^x$ grows faster. Is $3^x\in O(2^x)$?}
+	\emph{Answer:} No, proof as follows:
+	
+	Let $f(x)=3^x$ and $g(x)=2^x$ so that
+	\begin{equation*}
+		\lim_{x\to\infty} \frac{f(x)}{g(x)}=\lim_{x\to\infty} \frac{3^x}{2^x}=\lim_{x\to\infty} (\frac{3}{2})^x=\infty
+	\end{equation*}
+	
+	Since $\infty = \infty$, so that $3^x$ is $\omega(2^x)$, $3^x\not\in O(2^x)$
+\subsection{Intuitively, $\log_3(x)\in O(\log_2(x))$. Is $\log_2(x)\in O(\log_3(x))$?}
+	\emph{Answer:} Yes, proof as follows:
+	
+	Let $f(x)=\log_2(x)$ and $g(x)=\log_3(x)$ so that
+	\begin{equation*}
+		\lim_{x\to\infty} \frac{\log_2(x)}{\log_3(x)} = \lim_{x\to\infty} \frac{\frac{\ln x}{\ln 2}}{\frac{\ln x}{\ln 3}} = \lim_{x\to\infty} \frac{\ln 3}{\ln 2} = \log_2(3)
+	\end{equation*}
+	
+	Since $0\leq \log_2(3)<\infty$, $\log_2(x)$ is $O(\log_3(x))$.
+\subsection{Use summations to derive tight asymptotic bounds $(\Theta (-))$ on the runtime of each algorithm}
+\subsubsection{R-1.12}
+	\emph{Answer:}
+	First, we need to rewrite this algorithm into \emph{while} loop:
+	
+	\textbf{Algorithm} Loop2($n$):
+	
+	\begin{algorithmic}
+		\State $p \gets 1$ \Comment $1$ unit of time
+		\State $i \gets 1$ \Comment $1$ unit of time
+		\While {$i \leq 2n$} \Comment $2n+1$ units of time
+			\State $p \gets p \times i$ \Comment $2\times 2n$ units of time
+			\State $i \gets i + 1$ \Comment $2\times 2n$ units of time
+		\EndWhile
+	\end{algorithmic}
+	
+	As is described in the comments of the algorithm, the run time of this algorithm should be $\Theta(10n+3)$ units of time. So that this algorithm is $\Theta(n)$
+\subsubsection{R-1.14}
+	\emph{Answer:}
+	First, we need to rewrite this algorithm into \emph{while} loop:
+	
+	\textbf{Algorithm} Loop4($n$):
+	
+	\begin{algorithmic}
+		\State $s \gets 0$ \Comment $1$ unit of time
+		\State $i \gets 1$ \Comment $1$ unit of time
+		\While {$i \leq 2n$} \Comment $2n+1$ units of time
+			\State $j \gets 1$ \Comment $2n$ units of time
+				\While {$j \leq i$} \Comment $(i+1) \times 2n$ units of time
+					\State $s \gets s+i$ \Comment $2\times i \times 2n$ units of time
+					\State $j \gets j+1$ \Comment $2\times i \times 2n$ units of time
+				\EndWhile
+			\State $i \gets i+1$ \Comment $2n$ units of time
+		\EndWhile
+	\end{algorithmic}
+	
+	To calculate the time cost of the inner loop, we need to focus on the value of $i$ which changes with the outer loop. To make calculate easy to understand, we define $C_1$ as the actual units of time the outer loop will cost and $C_2$ as the actual units of time the inner loop will cost. So that:
+	\begin{equation*}
+		C_1=1+1+2n+1+2n+2n = 6n+3 
+	\end{equation*}
+	\begin{equation*}
+		C_2=2n\sum_{i=1}^{2n} (i+1+2i+2i)=10n^2+7n
+	\end{equation*}
+	To sum up, the total units of time this algorithm will cost should be $time_{total} = C_1 + C_2 = 10n^2+13n+3$. So that this algorithm is $\Theta(n^2)$
+\subsubsection{R-1.15}
+	\emph{Answer:}
+	First, we need to rewrite this algorithm into \emph{while} loop:
+	
+	\textbf{Algorithm} Loop5($n$):
+	
+	\begin{algorithmic}
+		\State $s\gets0$ \Comment $1$ unit of time
+		\State $i\gets1$ \Comment $1$ unit of time
+		\While{$i \leq n^2$} \Comment $n^2+1$ units of time
+			\State $j \gets 1$ \Comment $n^2$ units of time
+			\While{$j \leq i$} \Comment $(i+1) \times n^2$ units of time
+				\State $s\gets s+i$ \Comment $2\times i \times n^2$ units of time
+				\State $j\gets j+1$ \Comment $2\times i \times n^2$ units of time
+			\EndWhile
+			\State $i\gets i+1$ \Comment $n^2$ units of time
+		\EndWhile
+	\end{algorithmic}
+	
+	To calculate the time cost of the inner loop, we need to focus on the value of $i$ which changes with the outer loop. To make calculate easy to understand, we define $C_1$ as the actual units of time the outer loop will cost and $C_2$ as the actual units of time the inner loop will cost. So that:
+	\begin{equation*}
+		C_1=1+1+n^2+1+n^2+n^2 = 3n^2+3
+	\end{equation*}
+	\begin{equation*}
+		C_2=2n\sum_{i=1}^{n^2} (i+1+2i+2i)=\frac{5}{2} n^4 + \frac{7}{2} n^2
+	\end{equation*}
+	To sum up, the total units of time this algorithm will cost should be $time_{total} = C_1 + C_2 = \frac{5}{2}n^4+\frac{13}{2}n^2+3$. So that this algorithm is $\Theta(n^4)$
+\subsection{Explain why it is reasonable to ignore the overhead of a ranged \emph{for} loop when you derived the tight asymptotic runtime bounds in the previous question.}
+	\emph{Answer:} When calculating the runtime bounds of a loop, the overhead of such loop will cost a constant time of computation, while the loop body will cost $n$ times more than the overhead. As $n$ grows big enough, the overhead is always significantly smaller than the loop body. Thus, when we are deriving the asymptotic runtime bounds, we can ignore the overhead of a ranged loop.
 \end{document}
