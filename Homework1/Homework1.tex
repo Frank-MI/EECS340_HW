@@ -144,7 +144,7 @@
 \section{A Challenging Sum}
 	Show that summation $\sum_{i=1}^{n} \ceil{\log_2(n/i)}$ is $O(n)$. You may assume that $n$ is a power of $2$.
 	
-	\emph{Answer:}
+	\emph{Proof:}
 	
 	\textbf{Base Case:} Show that the statements holds for $n=1$.
 	
@@ -176,5 +176,125 @@
 	%	\end{equation*}
 \section{Theory: Big-Oh and Derivatives}
 	In the following questions, suppose that $f,g : \mathbb{R} \to \mathbb{R}$ are differentiable and strictly increasing ($f'(x) >0$ and $g'(x)>0$ for all $x$). Prove the statement in each question, or construct a counterexample.
-\subsection{}
+\subsection{Is $f(x)\in O(g(x))$ if and only if $f'(x)\in O(g'(x))$?}
+	\emph{Answer:} No, the counterexample is shown as follow:
+	
+	Suppose we have:
+	\begin{equation*}
+		f(x) = 3-\frac{1}{e^x}
+	\end{equation*}
+	\begin{equation*}
+		g(x) = 4-\frac{1}{e^{2x}}
+	\end{equation*}
+	
+	Where $f(x)\in O(g(x))$ because:
+	\begin{equation*}
+		\lim_{x\to\infty} \frac{f(x)}{(g(x))} = \lim_{x\to\infty}\frac{3-\frac{1}{e^x}}{4-\frac{1}{e^{2x}}}=\lim_{x\to\infty} \frac{\frac{3e^x-1}{e^x}}{\frac{4e^{2x}-1}{e^{2x}}}=\lim_{x\to\infty}\frac{e^x(3e^x-1)}{4e^{2x}-1}=\lim_{x\to\infty}\frac{3e^{2x}-e^x}{4e^{2x}-1}
+	\end{equation*}
+	
+	According to L'Hospital's rule,
+	\begin{equation*}
+		\lim_{x\to\infty}\frac{3e^{2x}-e^x}{4e^{2x}-1}=\lim_{e^x\to\infty} \frac{6e^x-1}{8e^x} = \lim_{e^x\to\infty}\frac{6}{8} = \frac{3}{4} = 0.75
+	\end{equation*}
+	
+	Since $0\leq0.75<\infty$, it is indeed that $f(x)\in O(g(x))$.
+	
+	However, when we have
+	\begin{equation*}
+		f'(x) = \frac{1}{e^x}
+	\end{equation*}
+	\begin{equation*}
+		g'(x) = \frac{2}{e^{2x}}
+	\end{equation*}
+	
+	To examine $f'(x)\in O(g'(x))$, we can calculate  $\lim_{x\to\infty}\frac{f'(x)}{g'(x)}$ by:
+	\begin{equation*}
+		\lim_{x\to\infty}\frac{f'(x)}{g'(x)}= \lim_{x\to\infty}\frac{\frac{1}{e^x}}{\frac{2}{e^{2x}}}=\lim_{x\to\infty}\frac{e^x}{2}=\infty
+	\end{equation*}
+	
+	Such results indicate that $f'(x) \in \omega(g'(x))$, which stands against $f'(x)\in O(g'(x))$. So that the statement in this question is not true.
+\subsection{Is it true that if $\lim_{x\to+\infty} f'(x)=0$, then $f(x)\in O(1)$?}
+	\emph{Answer:} No, the counterexample is shown as follow:
+	
+	Suppose we have:
+	\begin{equation*}
+		f(x) = \ln(x)
+	\end{equation*}
+	
+	Where $f'(x) = \frac{1}{x}$, and $\lim_{x\to+\infty} f'(x)=0$, however, 
+	
+	\begin{equation*}
+		\lim_{x\to+\infty}\frac{\ln(x)}{1} = \lim_{x\to+\infty} \ln(x) = +\infty
+	\end{equation*}
+	
+	So that $f'(x) \in \omega(1)$, which stands against $f'(x)\in O(1)$. So that the statement in this question is not true.
+\section{Theory: Properties of Big-Oh Notation}
+\subsection{Let $f,g: \mathbb{R} \to \mathbb{R}$ be continuous and strictly increasing. Is it necessarily the case that $f \in O(g(x))$ or $g \in O(f(x))$? Prove, or provide a counterexample.}
+	\emph{Answer:} Yes, the statement is true, prove as follows:
+	
+	According to the limit definition, the statement in the question is equivalent to: $\exists c_1=\lim_{x\to+\infty} \frac{f(x)}{g(x)}$ or $c_2=\lim_{x\to+\infty}\frac{g(x)}{f(x)}$, where $0\leq c_1<+\infty$ or $0\leq c_2<+\infty$
+	
+	Thus we have:
+	\begin{equation*}
+		1=\lim_{x\to+\infty} \frac{f(x)}{g(x)} \times \frac{g(x)}{f(x)} = c_1 \times c_2
+	\end{equation*}
+	
+	Since the definition field of $f(x)$ and $g(x)$ is $\mathbb{R}$, we can divide this field into three parts:
+	
+	First, when $c_1 \in (-\infty,0)$, it is not possible because in this case either $f(x)$ or $g(x)$ is not strictly increasing, which go against the condition given in the statement.
+	
+	Second, when $c_1 = 0$, we can simple conclude that $f(x)\in O(g(x))$ because of the definition and $g(x)\in \omega(f(x))$ because in this case $c_2 = +\infty$.
+	
+	Third, when $c_1 \in(0,+\infty)$, as is discussed above, we can also assert that $f(x)\in O(g(x))$ because of the definition.
+	
+	Forth, when $c_2 = 0$, it is like the opposite of the second case that $f(x)\in \omega(g(x))$ and $g(x)\in O(f(x))$
+	
+	To sum up, the statement is true.
+\subsection{R-1.18}
+	Show that $f(n)$ is $O(g(n))$ if and only if $g(n)$ is $\Omega(f(n))$.
+
+	\emph{Proof:}
+
+	$\to$: if we have $g(b)\in \Omega(f(n))$, which means $\exists 0<c\leq \infty, \lim_{n\to\infty} \frac{g(n)}{f(n)}=c$. We can assert that $\lim_{n\to\infty}g(n) \not =0$. So when considering $\lim_{n\to\infty}\frac{f(n)}{g(n)} =c'$, it is simply that $c' =\frac{1}{c}$. Since $0<c\leq \infty$, we can conclude that $0\leq c'<0$, which means $f(n)\in O(g(n))$.
+	
+	$\gets$: if we have $f(n)\in O(g(n))$, which means $\exists 0\leq c< \infty, \lim_{n\to\infty} \frac{f(n)}{g(n)}=c$. We can assert that $\lim_{n\to\infty}f(n) \not =0$. So when considering $\lim_{n\to\infty}\frac{g(n)}{f(n)} =c'$, it is simply that $c' =\frac{1}{c}$. Since $0\leq c< \infty$, we can conclude that $0< c'\leq0$, which means $g(n) \in \Omega(f(n))$.
+\subsection{R-1.19}
+	Show that if $p(n)$ is a polynomial in $n$, then $\log p(n)$ is $O(\log n)$.
+
+	\emph{Proof:}
+
+	Since $p(n)$ is a polynomial in $n$, which means 
+	\begin{equation*}
+		\exists a_0,a_1,a_2,a_3,...,a_m \in \mathbb{R}, p(n) = a_mn^m + a_{m-1}n^{m-1}+...+a_3n^3+a_2n^2+a_1n^1+a_0
+	\end{equation*}
+
+	Thus we have:
+	\begin{equation*}
+		\lim_{n\to\infty} \frac{\log(p(n))}{\log(n)}=\lim_{n\to\infty}\frac{\log (\sum_{i=0}^{m}a_in^i)}{\log (n)}=\lim_{n\to\infty}\frac{\ln (\sum_{i=0}^{m}a_in^i)}{\ln (n)}
+	\end{equation*}
+	
+	According to L'Hospital's rule, we have:
+	\begin{equation*}
+		\lim_{n\to\infty}\frac{\ln (\sum_{i=0}^{m}a_in^i)}{\ln (n)}= \lim_{n\to\infty}\frac{\sum_{i=1}^{m}ia_in^{i-1}\times\frac{1}{\sum_{i=0}^{m}a_in^i}}{\frac{1}{n}}=\lim_{n\to\infty}\frac{\sum_{i=1}^{m}ia_in^{i}}{\sum_{i=0}^{m}a_in^i}
+	\end{equation*}
+	
+	When we apply L'Hospital's rule for $m$ times, we have:
+	\begin{equation*}
+		\lim_{n\to\infty}\frac{\sum_{i=1}^{m}ia_in^{i}}{\sum_{i=0}^{m}a_in^i}=\lim_{n\to\infty}\frac{m\prod_{i=1}^{m}i}{\prod_{i=1}^{m}i}=m
+	\end{equation*}
+	
+	Since $m$ is the level of $p(n)$, $m\in \mathbb{N_+}$. Thus $0\leq m<+\infty$, so that $\log p(n) \in O(\log n)$.
+\section{Application: Matrix Multiplication}
+\subsection{Provide a tight asymptotic upper bound on the runtime of easy-mutiply in terms of $n$.}
+	
+\subsection{What is the asymptotic runtime of combined-multiply in terms of $n$?}
+	
+\section{``Application'': Spaghetti Sort}
+\subsection{Describe the asymptotic runtime of unmodified spaghetti-sort.}
+	
+\subsection{Suppose that we require that the input list is \emph{not} a list of arbitrary natural numbers, but is instead a list of 64-bit unsigned integers. What is a tight bound on the asymptotic runtime of spaghetti sort now?}
+	
+\subsection{In the light of the answer to the previous question, why/ why not would we want to use spaghetti-sort for sorting 64-bit unsigned integers in practice?}
+	
+\section{Algorithm Design: Finding Cycles}
 \end{document}
