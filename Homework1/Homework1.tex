@@ -241,7 +241,7 @@
 	
 	Since the definition field of $f(x)$ and $g(x)$ is $\mathbb{R}$, we can divide this field into these parts:
 	
-	First, when $c_1 \in (-\infty,0)$, it is not possible because in this case either $f(x)$ or $g(x)$ is not strictly increasing, which go against the condition given in the statement.
+	First, when $c_1 \in (-\infty,0)$, it is not possible because in this case either $f(x)$ or $g(x)$ is not positive, which go against the condition given in the statement.
 	
 	Second, when $c_1 = 0$, we can simple conclude that $f(x)\in O(g(x))$ because of the definition and $g(x)\in \omega(f(x))$ because in this case $c_2 = +\infty$.
 	
@@ -286,9 +286,28 @@
 	Since $m$ is the level of $p(n)$, $m\in \mathbb{N_+}$. Thus $0\leq m<+\infty$, so that $\log p(n) \in O(\log n)$.
 \section{Application: Matrix Multiplication}
 \subsection{Provide a tight asymptotic upper bound on the runtime of easy-mutiply in terms of $n$.}
-	
+	\emph{Answer:} To calculate the asymptotic upper bound, we need to rewrite this algorithm into \emph{while} loop:
+	\begin{algorithmic}
+		\State $Result \gets $an $n \times n$ matrix of zeros \Comment $n\times n$ units of time
+		\State $i\gets 1$ \Comment 1 unit of time
+		\While{$i\leq n$} \Comment $n+1$ units of time
+			\State $j\gets 1$ \Comment $n$ units of time
+			\While{$j\leq n$} \Comment $n\times(n+1)$ units of time
+				\State $k\gets 1$ \Comment $n\times n$ units of time
+				\While{$k\leq n$} \Comment $n\times n\times (n+1)$ units of time
+					\State $Result[i][j]\gets A[i][k]*B[k][j]$ \Comment $8\times n^{3}$ units of time
+					\State $k\gets k+1$ \Comment $2\times n^3$ units of time
+				\EndWhile
+				\State $j\gets j+1$ \Comment $2\times n^2$ units of time
+			\EndWhile
+			\State $i\gets i+1$ \Comment $2\times n$ units of time
+		\EndWhile
+		\State \Return $Result$\Comment $1$ unit of time
+	\end{algorithmic}
+
+	So the total time of execution is $11n^3+5n^2+5n+3$, so that the upper bound should be $\Theta(n^3)$.
 \subsection{What is the asymptotic runtime of combined-multiply in terms of $n$?}
-	
+	\emph{Answer:} Since when $n\geq100$, this algorithm will use \emph{Strassen Matrix Multiplication} method to calculate the multiplication, we can assert that the asymptotic runtime of combined-multiply is the same as \emph{Strassen Matrix Multiplication}, so it is $O(n^{2.807})$.
 \section{``Application'': Spaghetti Sort}
 \subsection{Describe the asymptotic runtime of unmodified spaghetti-sort.}
 	

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.10.7)  26 JAN 2018 20:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.10.7)  29 JAN 2018 13:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -664,13 +664,13 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 {c:/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] [5]
  [6] (./Homework1.aux) ) 
 Here is how much of TeX's memory you used:
- 4725 strings out of 492995
- 63746 string characters out of 6136402
- 151515 words of memory out of 5000000
- 8190 multiletter control sequences out of 15000+600000
+ 4728 strings out of 492995
+ 63794 string characters out of 6136402
+ 150515 words of memory out of 5000000
+ 8193 multiletter control sequences out of 15000+600000
  12057 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,7n,35p,424b,197s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 39i,7n,35p,424b,218s stack positions out of 5000i,500n,10000p,200000b,80000s
 <c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmbx10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx1
 2.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><
@@ -689,7 +689,7 @@ ype1/public/amsfonts/cm/cmsy6.pfb><c:/texlive/2017/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmsy8.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmti10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/symbols/
 msbm10.pfb>
-Output written on Homework1.pdf (6 pages, 209877 bytes).
+Output written on Homework1.pdf (6 pages, 215100 bytes).
 PDF statistics:
  99 PDF objects out of 1000 (max. 8388607)
  71 compressed objects within 1 object stream
