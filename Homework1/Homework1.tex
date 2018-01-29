@@ -310,14 +310,14 @@
 	\emph{Answer:} Since when $n\geq100$, this algorithm will use \emph{Strassen Matrix Multiplication} method to calculate the multiplication, we can assert that the asymptotic runtime of combined-multiply is the same as \emph{Strassen Matrix Multiplication}, so it is $O(n^{2.807})$.
 \section{``Application'': Spaghetti Sort}
 \subsection{Describe the asymptotic runtime of unmodified spaghetti-sort.}
-	
+	\emph{Answer:} The \emph{while} loop is executed for $n$ times where $n$ is the size of $L$. Inside of the \emph{while} loop, there is a \emph{for} loop which will be executed for $m$ times where $m$ maximum element in $L$, so that $m\leq 2^32-1$. As long as the append and remove operations are on the linked list, these operations and be done in constant time. To sum up, the runtime of unmodified algorithm should be $\Theta(n)$.
 \subsection{Suppose that we require that the input list is \emph{not} a list of arbitrary natural numbers, but is instead a list of 64-bit unsigned integers. What is a tight bound on the asymptotic runtime of spaghetti sort now?}
-	
+	\emph{Answer:} The tight bound should also be $\Theta(n)$, but the algorithm will possible try all the numbers in 64-bit unsigned integers, which means the actual runtime will be $2^{32}$ times longer than the original algorithm. Although $2^{32}$ is not related to the input size, we cannot see a direct reflection in the tight bound. However, the algorithm is much slower than other sorting algorithms even like bubble sort.
 \subsection{In the light of the answer to the previous question, why/ why not would we want to use spaghetti-sort for sorting 64-bit unsigned integers in practice?}
-	
+	\emph{Answer:} When we consider the searching space size $m$ into the complexity of algorithm, we can rewrite the runtime bound of this algorithm into $\Theta(n\times m)$, so that when we are sorting 64-bit unsigned integers, the value of $m$ is significantly larger than $n$ in most cases. At this time, the algorithm will cost most of the time trying to searching around the whole searching space, which contains mostly useless operation.
 \section{Algorithm Design: Finding Cycles}
 	\emph{Answer:} The pseudo-code of my algorithm is as follows:
-	
+
 	\begin{algorithmic}
 		\State $fast\gets head$
 		\State $slow\gets head$
