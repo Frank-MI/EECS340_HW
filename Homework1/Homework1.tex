@@ -316,4 +316,33 @@
 \subsection{In the light of the answer to the previous question, why/ why not would we want to use spaghetti-sort for sorting 64-bit unsigned integers in practice?}
 	
 \section{Algorithm Design: Finding Cycles}
+	\emph{Answer:} The pseudo-code of my algorithm is as follows:
+	
+	\begin{algorithmic}
+		\State $fast\gets head$
+		\State $slow\gets head$
+		\While {$True$}
+			\If {$fast = NULL$}
+				\State Break
+			\EndIf
+			\If {$fast.next = NULL$}
+				\State Break
+			\EndIf
+			\If {$fast.next.next = NULL$}
+				\State Break
+			\EndIf
+			\State $fast \gets fast.next.next$
+			\State $slow \gets slow.next$
+			\If {$fast.value=slow.value$}
+				\State \Return $True$
+			\EndIf
+		\EndWhile
+		\State \Return $False$
+	\end{algorithmic}
+
+	Here the $head$ means the head node of the linked list, the $X.next$ means the next node of node $X$, and $X.value$ means the value stored in node $X$.
+	
+	As is shown in the algorithm, the $fast$ node is one step faster than then $slow$ node when performed every loop. When there is a cycle in the link list, the $fast$ node will need to go around the cycle for $2$ times and the $slow$ node will only go for one complete path through the cycle. Based on this observation, we can conclude that this \emph{while} loop is executed for $n$ times given the fact that the link list have a size of $n$. On the other hand, if there is no cycle in the linked list, we can see that $fast$ node will quickly get an $NULL$ value since it will jump two steps every loop, so that the loop is executed for less than $\frac{n}{2}$ times. To sum up, the loop is executed at most for $n$ times. So that the asymptotic runtime is $O(n)$. 
+	
+	To examine the space usage, in this algorithm, we only used two temporarily nodes named $fast$ and $slow$, and the space usage is irrelevant to the size of $n$. We can conclude that the space usage is the size of two nodes, and bounded by $O(1)$.
 \end{document}
