@@ -1,0 +1,37 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+\renewcommand{\baselinestretch}{1.0}
+\usepackage[letterpaper, margin=0.75in]{geometry}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\pagestyle{fancy}
+\lhead{}
+\rhead{Yu Mi, yxm319. Algorithm HW1}
+\begin{document}
+	\title{Homework1 for EECS 340}
+	\author{Yu Mi,yxm319}
+	\maketitle
+\section{Give a recursive algorithm to find the average (mean) value of an array of $2^k$ decimal numbers, where $k\in \mathbb{N}$.}
+	\emph{Answer:} The proposed algorithm is like follow:
+	
+	\begin{algorithmic}
+	\State \textbf{Algorithm A1}: Average($L$, $position_{start}$, $position_{end}$)
+	\State \textbf{Data}: A list of $2^k$ decimal numbers $L$, and the start and end position of calculation, $position_{start}$ and $position_{end}$.
+	\State \textbf{Result}: The average of all the numbers in $L$.
+	\If {$position_{start}$ = $position_{end}$} 
+		\State \Return $L(position_{start})$
+	\Else
+		\State \Return $0.5\times$ $($Average($L$,$position_{start}$,$\frac{position_{start}+position_{end}-1}{2}$)$+$Average($L$,$\frac{position_{start}+position_{end}+1}{2}$,$position_{end}$)$)$
+	\EndIf
+	\end{algorithmic}
+\section{R-12.6}
+	
+\end{document}
