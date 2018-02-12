@@ -14,7 +14,7 @@
 \DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
 \pagestyle{fancy}
 \lhead{}
-\rhead{Yu Mi, yxm319. Algorithm HW1}
+\rhead{Yu Mi, yxm319. Algorithm HW2}
 \begin{document}
 	\title{Homework2 for EECS 340}
 	\author{Yu Mi,yxm319}
@@ -103,5 +103,21 @@
 	
 	NOTE: in the operations of lists, $L_{temp}$.append($L[i]$) means to append the element $L[i]$ at the end of list $L_{temp}$. And $L$.remove($i$) means to remove the $i$th element in list $L$.
 \section{Write pseudo-code for a new recursive function \emph{moving-average}}
-
+	\emph{Answer}: The algorithm is shown as follows:
+	\begin{algorithmic}
+	\State \textbf{Algorithm} moving-average($S,t_{start},t_{end}$)
+	\State \textbf{Data}: Stock-price time series data $S$,a start time $t_{start}$, and a ending time $t_{end}$.
+	\State \textbf{Result}: The average stock price from $t_{start}$ through $t_{end}$.
+	\State $i\gets0$
+	\If {$t_{start} = t_{end}$}
+		\State \Return 0
+	\EndIf
+	\For {$i\gets t_{end}$ to $t_{start}$}
+		\If {$t_{start}\%(i-t_{start})=0$ \textbf{and} ($(i-t_{start})$ is a power of 2)}
+			\State \Return $\frac{i-t_{start}}{t_{end}-t_{start}}\times$ pow-of-two-average($S,t_{start},i$)+$\frac{t_{end}-i}{t_{end}-t{start}}\times$ moving-average($S,i,t_{end}$)
+			\State \textbf{break}
+		\EndIf
+	\EndFor
+	\State \Return 0
+	\end{algorithmic}
 \end{document}
