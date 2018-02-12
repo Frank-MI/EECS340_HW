@@ -121,7 +121,28 @@
 	\State \Return 0
 	\end{algorithmic}
 \section{Write pseudo-code for a recursive function to compute \emph{checker-sum(A)$_{i,j}$} given the triple ($A,i,j$)}
-	\emph{Answer}:
+	\emph{Answer}: The algorithm is shown as follows:
+	\begin{algorithmic}
+	\State \textbf{Algorithm} checker-sum($A,i,j$)
+	\State \textbf{Data}: A matrix $A$, and index $i$ and $j$
+	\State \textbf{Result}: The checkerboard sum of matrix $A$
+	\If {$j>1$}
+		\State \Return compute-row($A,i,j$) $-$ checker-sum($A,i,j-1$)
+	\Else
+		\State \Return compute-row($A,i,j$)
+	\EndIf
+	\end{algorithmic}
+
+	\begin{algorithmic}
+	\State \textbf{Algorithm} compute-row($A,i,j$)
+	\State \textbf{Data}: A matrix $A$, and index $i$ and $j$
+	\State \textbf{Result}: The checkerboard sum of row $j$ in matrix $A$
+	\If {$i>1$}
+		\State \Return $A(i,j)$ $-$ compute-row($A,i-1,j$)
+	\Else
+		\State \Return $A(i,j)$
+	\EndIf
+	\end{algorithmic}
 \section{Read section 17.1 in the textbook and then solve the following problems}
 \subsection{R-17.7}
 	\emph{Question}: Show that the CLINQUE problem is in \emph{NP}
