@@ -110,9 +110,12 @@
 	\State \textbf{Result}: The average stock price from $t_{start}$ through $t_{end}$.
 	\State $i\gets0$
 	\If {$t_{start} = t_{end}$}
-		\State \Return 0
+		\State \Return $0$
 	\EndIf
-	\For {$i\gets t_{end}$ to $t_{start}$}
+	\If{$t_{start}=t_{end}-1$}
+		\State \Return ${S[t_{start}]}$
+	\EndIf
+	\For {$i\gets t_{end}-1$ to $t_{start}$}
 		\If {$t_{start}\%(i-t_{start})=0$ \textbf{and} ($(i-t_{start})$ is a power of 2)}
 			\State \Return $\frac{i-t_{start}}{t_{end}-t_{start}}\times$ pow-of-two-average($S,t_{start},i$)+$\frac{t_{end}-i}{t_{end}-t{start}}\times$ moving-average($S,i,t_{end}$)
 			\State \textbf{break}
