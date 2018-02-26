@@ -20,13 +20,81 @@
 	\author{Yu Mi,yxm319}
 	\maketitle
 \section{Sorting Leftover Elements}
-\section{Theory: Sorting Algorithm Runtimes}
+\noindent \emph{Question}: Suppose that you are given an array consisting of $n$ sorted elements followed by $f(n)$ elements in an arbitrary order, where $f(n)\in O(n^{1-\epsilon})$ for some $\epsilon \in(0,1)$. Describe a method to sort the array in $O(n)$ time.
+
+\noindent \emph{Answer}: This question describes a scenario similar to the intermediate steps of a merge sort, so that we need to solve this problem similar to the approach of a merge sort. First, we need to sort the leftover elements with merge sort, which takes $O(n^{1-\epsilon}\cdot \log n^{1-\epsilon})$ time. After that, we will need to merge the two sequence (original sorted one and the left over part) into a whole sorted sequence, which takes $O(n)$ time. To show that $O(n^{1-\epsilon}\cdot \log n^{1-\epsilon})$ takes less time than $O(n)$, we assign $g(n)=n^{1-\epsilon}\cdot \log n^{1-\epsilon}$, $h(n) = n$. Thus we have:
+\begin{equation*}
+	\lim_{n\to\infty} \frac{g(n)}{h(n)} = \lim_{n\to\infty}\frac{(1-\epsilon)\cdot n^{1-\epsilon}\cdot\ln n}{n\cdot \ln 2}= \lim_{n\to\infty} \frac{1-\epsilon}{\ln 2}\cdot(n^{-\epsilon}\cdot \ln n + n^{-\epsilon}) =\lim_{n\to\infty} \frac{1-\epsilon}{\ln 2} \cdot \frac{\ln n +1}{n^{\epsilon}} =\lim_{n\to\infty} \frac{1-\epsilon}{\ln 2} \cdot \frac{1}{\epsilon n^{\epsilon}}
+\end{equation*}
+
+L'Hospital's rule is used in the second and forth step. The equation above will approach $0$ when $n\to \infty$, so that $O(n^{1-\epsilon}\cdot \log n^{1-\epsilon})$ takes less time than $O(n)$, we can conclude that $O(n^{1-\epsilon}\cdot \log n^{1-\epsilon}) + O(n)$ is $O(n)$. 
+\section{Theory: Sorting Algorithm Run-times}
+\subsection{Give a tight asymptotic bound on $f(n)$}
+\noindent \emph{Answer}: Since the total amount of permutation od $n$ elements is $n!$, and binary encoding will use $\log (n!)$ bits to encode such permutations, our tight asymptotic bound should be 
+\begin{equation*}
+\log(n!)=\sum_{i=1}^{n} \log i
+\end{equation*}
+Such time bound make sense because it is always smaller than $n\log n$, which is the time of fastest sorting algorithm (at least I know).
+\subsection{Why doesn't the derived lower bound, from the previous part hold for non-comparison-based sorting algorithms like radix sort.}
+\noindent \emph{Answer}: Since non-comparison-based is not based on comparisons to make a sort, they cannot be viewed as a comparison-based approach where each comparison can be treated as searching for a bit in the permutation. The lower bound derived above only stands for the comparison based sorting algorithm where we use each comparison to compose a 'bit' for the ultimate answer.
 \section{Post Office Placement}
+\noindent \emph{Question}: Is the bucket-sort algorithm in-place? Why or why not?
+
+\noindent \emph{Answer}: Bucket-sort is \textbf{not} an in-place algorithm. Since the number of buckets is only bounded by $n$, which is the length of the input sequence $S$, so that this algorithm will need linear additional space and consequently not in-place. In some worse implementations, the algorithm will allocate $O(n\cdot k)$ space where $k$ is the number of buckets.
 \section{Sorting Sequences}
+\noindent \emph{Question}: Suppose we are given a sequence $S$ of $n$ elements, each of which is an integer in the range $[0,n^2-1]$. Describe a simple method for sorting $S$ in $O(n)$ time.
+
+\noindent \emph{Hint}: Think of alternate ways of viewing the elements.
+\noindent \emph{Answer}: The approach is based on Radix sort:
+\begin{algorithmic}
+	\State \textbf{Algorithm} Radix-sort($S,n$)
+	\State \textbf{Data}: A unsorted sequence $S$, and its length $n$
+	\State \textbf{Result}: The sorted sequence $S'$
+	\State $buckets \gets n $ lists
+	\For{$i \gets 0$ to $n$}
+		\State $digit \gets $\textbf{int}$((S[n])/n)$
+		\State $buckets[digit]$.append($S[n]$)
+	\EndFor
+	\For{$i \gets 0$ to $n$}
+		\State $result\gets n$ lists
+		\For{$j\gets 0$ to $length(buckets[i])$}
+			\State $result[buckets[i][j]\%n].append(buckets[i][j])$
+		\EndFor
+		\State $bucket\gets$ empty list
+		\For{$j\gets 0$ to $n$}
+			\State $bucket.append(result[j])$
+		\EndFor
+		\State $buckets[i]\gets bucket$
+	\EndFor
+	\State $result \gets$ empty list
+	\For {$i \gets 0$ to $n$}
+		\For {$number$ in $bucket[i]$}
+			\State $result.append(number)$
+		\EndFor
+	\EndFor
+\end{algorithmic}
 \section{Median From Two Lists}
+\noindent \emph{Question}: Suppose you are given two sorted lists, $A$ and $B$, of $n$ elements each all of which are distinct. Describe a method that runs in $O(\log n)$ time for finding the median in the set defined by the union of $A$ and $B$. Note that merging or concatenating the arrays would take $O(n)$ time.
 \section{Warm-up: Graphs}
+\subsection{R-7.1}
+\noindent \emph{Question}: Suppose we have a social network with members $A,B,C,D,E,F,$ and $G$, and the set of friendship ties,
+\begin{equation*}
+	\{(A,B),(B,C),(C,A),(D,E),(F,G)\}.
+\end{equation*}
+Where are the connected components?
+
+\subsection{R-13.2}
+\noindent \emph{Question}: Let $G$ be a simple connected graph with $n$ vertices and $m$ edges. Explain why $O(\log m)$ is $O(\log n)$.
+
+\subsection{Given the graph}
+\subsubsection{Draw the graph where all nodes are annotated with the order that they are visited in a \textbf{depth-first} search from A.}
+\subsubsection{Draw a representation of the tree generated by the DFS annotated over the previous part.}
 \section{Application: Chess}
 \section{Application: A World of Voxels}
 \section{Practice: Topological Sorting}
 \section{EECS 454 only}
+\subsection{C-17.4}
+\noindent \emph{Question}: Consider the problem \textbf{DNF-SAT}, which takes a Boolean formula $S$ in disjunctive normal form (DNF) as input and asks whether $S$ is satisfiable. Describe a deterministic polynomial-time algorithm for \textbf{DNF-SAT}.
+\subsection{C-17.5}
+\noindent \emph{Question}: Consider the problem \textbf{DNF-DISSAT}, which takes a Boolean formula S in disjunctive normal form (\textbf{DNF}) as input and asks whether S is dissatisfiable, that is, there is an assignment of Boolean values to the variables of S so that it evaluates to 0. Show that \textbf{DNF-DISSAT} is \emph{NP}-complete.
 \end{document}
