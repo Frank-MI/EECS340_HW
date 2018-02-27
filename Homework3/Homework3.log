@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.10.7)  26 FEB 2018 15:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.10.7)  27 FEB 2018 16:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -698,72 +698,101 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [3] <Figure/Fig1.png, id=25, 438.8897pt x 178.41656pt>
 File: Figure/Fig1.png Graphic file (type png)
  <use Figure/Fig1.png>
-Package pdftex.def Info: Figure/Fig1.png used on input line 149.
+Package pdftex.def Info: Figure/Fig1.png used on input line 148.
 (pdftex.def)             Requested size: 202.3529pt x 82.26045pt.
 
 <Figure/Fig3.png, id=27, 470.50781pt x 363.60844pt>
 File: Figure/Fig3.png Graphic file (type png)
  <use Figure/Fig3.png>
-Package pdftex.def Info: Figure/Fig3.png used on input line 164.
+Package pdftex.def Info: Figure/Fig3.png used on input line 163.
 (pdftex.def)             Requested size: 202.3529pt x 156.37631pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
 
 <Figure/Fig2.png, id=28, 305.64188pt x 373.395pt>
 File: Figure/Fig2.png Graphic file (type png)
  <use Figure/Fig2.png>
-Package pdftex.def Info: Figure/Fig2.png used on input line 172.
+Package pdftex.def Info: Figure/Fig2.png used on input line 171.
 (pdftex.def)             Requested size: 202.3529pt x 247.20493pt.
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
 
+[4 <./Figure/Fig1.png> <./Figure/Fig3.png>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[4 <./Figure/Fig1.png>]
+[5 <./Figure/Fig2.png>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[5 <./Figure/Fig3.png> <./Figure/Fig2.png>]
+[6]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[6] (./Homework3.aux) ) 
+[7]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[8]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[9]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[10]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[11] (./Homework3.aux) ) 
 Here is how much of TeX's memory you used:
- 4881 strings out of 492995
- 65528 string characters out of 6136402
- 151638 words of memory out of 5000000
- 8338 multiletter control sequences out of 15000+600000
+ 4889 strings out of 492995
+ 65649 string characters out of 6136402
+ 153638 words of memory out of 5000000
+ 8346 multiletter control sequences out of 15000+600000
  11698 words of font info for 44 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,10n,43p,679b,340s stack positions out of 5000i,500n,10000p,200000b,80000s
-<c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmbx10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12
-.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/
-texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2
-017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2017/texmf
--dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2017/texmf-dist/font
-s/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmr12.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmr17.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
-8.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:
-/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2
-017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on Homework3.pdf (6 pages, 245299 bytes).
+ 39i,10n,43p,794b,350s stack positions out of 5000i,500n,10000p,200000b,80000s
+<c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmbx10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx1
+2.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:
+/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/
+2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2017/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2017/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr12.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmr17.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r8.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c
+:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/
+2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on Homework3.pdf (11 pages, 263558 bytes).
 PDF statistics:
- 82 PDF objects out of 1000 (max. 8388607)
- 54 compressed objects within 1 object stream
+ 99 PDF objects out of 1000 (max. 8388607)
+ 66 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
