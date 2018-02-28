@@ -36,7 +36,7 @@ L'Hospital's rule is used in the second and forth step. The equation above will 
 \end{equation*}
 Such time bound make sense because it is always smaller than $n\log n$, which is the time of fastest sorting algorithm (at least I know).
 \subsection{Why doesn't the derived lower bound, from the previous part hold for non-comparison-based sorting algorithms like radix sort.}
-\noindent \emph{Answer}: Since non-comparison-based is not based on comparisons to make a sort, they cannot be viewed as a comparison-based approach where each comparison can be treated as searching for a bit in the permutation. The lower bound derived above only stands for the comparison based sorting algorithm where we use each comparison to compose a 'bit' for the ultimate answer.
+\noindent \emph{Answer}: Since non-comparison-based is not based on comparisons to make a sort, they cannot be viewed as a comparison-based approach where each comparison can be treated as searching for a bit in the permutation. The lower bound derived above only stands for the comparison based sorting algorithm where we use each comparison to compose a `bit' for the ultimate answer.
 \section{Post Office Placement}
 \noindent \emph{Question}: Suppose you are the postmaster in charge of putting a new post office in a small town, where all the houses are along one street, where the new post office should go as well. Let us view this street as a line and the houses on it as a set of real numbers, $\{x_1, x_2, . . . , x_n\}$, corresponding to points on this line. To make everyone in town as happy as possible, the location, p, for the new post office should minimize the sum,
 \begin{equation*}
@@ -49,7 +49,7 @@ Describe an efficient algorithm for finding the optimal location for the new pos
 	\arg \min_{p} \sum_{s\in S} |s-p|
 \end{equation*}
 
-We should notice that $\frac{d |p|}{d p}=sign (x)$, when the $\arg \min_{p} \sum_{s\in S} |s-p|$ equals to zero, we have $p=median\{s_1,s_2,...s_n\}$. As is similar in this question, we need to figure out the median of all the $x$. Thus we have the algorithm as follows, using the $QuickSort$ as is described in class:
+We should notice that $\frac{d |p|}{d p}=sign (p)$, when the $\arg \min_{p} \sum_{s\in S} |s-p|$ equals to zero, we have $p=median\{s_1,s_2,...s_n\}$. As is similar in this question, we need to figure out the median of all the $x$. Thus we have the algorithm as follows, using the $QuickSort$ as is described in class:
 \begin{algorithmic}
 	\State \textbf{Algorithm} FindOffice($S,n$)
 	\State \textbf{Data}: A list of all addresses $S$, and its length $n$
@@ -432,9 +432,29 @@ $(0,0) \to NULL$
 \subsection{C-17.4}
 \noindent \emph{Question}: Show that every language $L$ in \textbf{P} is polynomial-time reducible to the language $M = {5}$, that is, the language that simply asks whether the binary encoding of
 the input is equal to $5$.
+
+\noindent \emph{Answer}: This question tries to solve the target problem by making a subroutine of a similar problem and try to prove that this problem can be solved in polynomial time. Thus the target problem can also be solved in a similar way.
+
+If an input $x$ is passed to language $L$, and we have a polynomial function $f(x)$ which could convert $x$ to $x'$, and the converted input $x'$ can pass the language $M$, thus we can say that $L$ could be polynomial-time reducible to $M$.
+
+One possible conversion function can be shown as follow:
+\begin{algorithmic}
+	\State \textbf{def} $f(x)$
+	\State $result \gets$ a list with length of $32$ \Comment Under the 32 bit system...
+	\For{$i\gets 0$ to $31$}
+		\State $result[i] \gets (x/2^i)\%2$
+	\EndFor
+	\State \Return $Result$
+\end{algorithmic}
+
+We can simply conclude that the function above could be run under constant time, and returns the binary encode of the x. So for language $M$, we only need to check whether the input is $(101)_2$, which is the binary encode of $(5)_{10}$.
 \subsection{C-17.5}
 \noindent \emph{Question}: Show how to construct a Boolean circuit $C$ such that, if we create variables only for the inputs of $C$ and then try to build a Boolean formula that is equivalent to
-C, then we will create a formula exponentially larger than an encoding of $C$.
+$C$, then we will create a formula exponentially larger than an encoding of $C$.
 
 \noindent \emph{Hint}: Use recursion to repeat subexpressions in a way that doubles their size each time they are used.
+
+\noindent \emph{Answer}: Suppose we have the input of $C$, which contains $n$ boolean variables: $x_1,x_2,x_3,...,x_n$. The boolean operations will at least use two input and generate one output. Here we leave out the `not' operation because it will not cause any difference in computational complexity. Thus, we can conclude that for each output of one boolean operation, once it is reused(be used more than once), it will cause at least two same parts in the boolean formula. In such situation, the `reused' output will lead to the corresponding input also be `reused', making the size of boolean formula increase exponentially.
+
+In the view of algorithm simulation, we can treat the boolean formula as a machine that never keep results except the intermediate result of the total operation. Then we have to compute the intermediate functions every time and achieve the same answer, which means when we see the whole question from the output point, we need to recursively call every binary operations to generate the intermediate answer and then combine them into the final output. Such approach will lead to the time complexity grow exponentially.
 \end{document}
