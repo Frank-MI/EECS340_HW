@@ -1,0 +1,92 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{latexsym}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+\renewcommand{\baselinestretch}{1.0}
+\usepackage[letterpaper, margin=0.75in]{geometry}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\pagestyle{fancy}
+\lhead{}
+\rhead{Yu Mi, yxm319. Algorithm HW4}
+\renewcommand{\thesubsection}{\alph{subsection}}
+\begin{document}
+	\title{Homework4 for EECS 340}
+	\author{Yu Mi,yxm319}
+	\maketitle
+\section{Warm-up: BFS}
+Given the graph:
+\begin{figure}[h]
+	\centering
+	\includegraphics*[width=0.3\textwidth]{Figure/1.png}
+	\label{fig:fig1}
+\end{figure}
+\subsection{Draw the shortest path tree found by a BFS.}
+\noindent \emph{Answer} : The shortest path tree is shown as Fig.\ref{fig:fig2}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.3\textwidth]{Figure/1_1.png}
+	\caption{Shortest path tree}
+	\label{fig:fig2}
+\end{figure}
+\subsection{Annotate the tree in part(a) with the order vertives are visited in your BFS.}
+\noindent \emph{Answer} : The annotated graph is shown as Fig.\ref{fig:fig3}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.3\textwidth]{Figure/1_2.png}
+	\caption{Annotated graph}
+	\label{fig:fig3}
+\end{figure}
+\subsection{List the cross-edges of the BFS.}
+\noindent \emph{Answer} : The cross edges of the BFS could be described as follows:
+\begin{equation*}
+	\{(B,C)\}
+\end{equation*}
+
+
+\section{Warm-up: Topological Sorting}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.4\textwidth]{Figure/2.png}
+	\label{fig:fig4}
+\end{figure}
+\subsection{Find four distinct topological ordering of the nodes in the following directed acyclic graph, presented here as a $3\times3$ grid.}
+\noindent\emph{Answer} : The topological ordering of the nodes could be:
+\begin{enumerate}
+	\item $\{(2,2),(2,1),(1,2),(2,0),(1,1),(0,2),(1,0),(0,1),(0,0)\}$
+	\item $\{(2,2),(1,2),(2,1),(2,0),(1,1),(0,2),(1,0),(0,1),(0,0)\}$
+	\item $\{(2,2),(2,1),(1,2),(2,0),(0,2),(1,1),(1,0),(0,1),(0,0)\}$
+	\item $\{(2,2),(2,1),(2,0),(1,2),(0,2),(1,1),(1,0),(0,1),(0,0)\}$
+\end{enumerate}
+\subsection{Describe how to generalize your orderings to the case of a graph with the same connectivity pattern on an $n\times n$ grid.}
+\noindent\emph{Answer} : As is shown in Fig.\ref{fig:fig5}, the nodes can be classified into $5$ different classes according to their depth from the starting node ${(2,2)}$. As we can see from the graph, the two indexes of the nodes is always larger or equal than $0$, and the deeper the node is, the less the sum of two indexes would be. This observation also corresponds to the classification we made as above. Since the nodes in the same class have the same depth from the starting node, we can arrange them randomly (in class) in the topological order. However, as to the ordering between different classes, we can only follow the order from the starting node to the end point. 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.4\textwidth]{Figure/2_1.png}
+	\caption{Classify the nodes}
+	\label{fig:fig5}
+\end{figure}
+
+To describe the topological order, we define \textbf{class(n)} as the nodes which have their two indexes' sum is $n$. For example, $class(n) = \{(n,0),(n-1,1),...,(1,n-1),(0,n)\}$. Thus, the topological order for an $n\times n$ grid would be: $\{class(n),class(n-1),...,class(0)\}$. One thing to node here is the $class(n)$ does not necessarily mean a ordered set, so that it could generate $n!$ possible orderings. As to the $n\times n$ grid, the number of possible ordering is $\prod_{i=0}^{n}n!$.
+
+\section{A Unicycle Problem}
+
+Prove that a cycle exists in an undirected graph if and only if a BFS of that graph has a cross-edge. Your proof may use the following facts from graph theory:
+\begin{enumerate}
+	\item There exists a unique path between any two vertices of a tree.
+	\item Adding any edge to a tree creates a unique cycle.
+\end{enumerate}
+
+\noindent\emph{Proof} : 
+
+($\Longrightarrow$): Since the BFS of a graph will build a tree according to the nodes' distance from the starting node, the depths of nodes is the same as their distance from the starting node. However, if their is a cross-edge in the BFS search tree, it means there is at least one edge in the graph except the BFS search tree. According to the fact 2 provided by the question, there is a circle in the graph.
+
+($\Longleftarrow$): Since there is a cycle exists in the undirected graph, there is at least two different paths from nodes in the cycle, say $A$ and $B$. However, as the fact 1 provided, the BFS tree will only cover one unique path between $A$ and $B$. And there is also another path from $A$ to $B$ in the graph, which means 
+\end{document}
