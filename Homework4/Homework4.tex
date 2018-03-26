@@ -88,5 +88,60 @@ Prove that a cycle exists in an undirected graph if and only if a BFS of that gr
 
 ($\Longrightarrow$): Since the BFS of a graph will build a tree according to the nodes' distance from the starting node, the depths of nodes is the same as their distance from the starting node. However, if their is a cross-edge in the BFS search tree, it means there is at least one edge in the graph except the BFS search tree. According to the fact 2 provided by the question, there is a circle in the graph.
 
-($\Longleftarrow$): Since there is a cycle exists in the undirected graph, there is at least two different paths from nodes in the cycle, say $A$ and $B$. However, as the fact 1 provided, the BFS tree will only cover one unique path between $A$ and $B$. And there is also another path from $A$ to $B$ in the graph, which means 
+($\Longleftarrow$): Since there is a cycle exists in the undirected graph, there is at least two different paths from nodes in the cycle, say $A$ and $B$. However, as the fact 1 provided, the BFS tree will only cover one unique path between $A$ and $B$. And there is also another path from $A$ to $B$ in the graph, which means there is at least one cross-edge with one end is either $A$ or $B$. So that the BFS of that graph has a cross-edge.
+
+Based on the discussion above, the statement made by the question stands.
+
+\section{A Bicycle Problem}
+\textbf{C-13.15} : Let $G$ be an undirected graph with $n$ vertices and $m$ edges. Describe an $O(n+m)$ time algorithm to determine whether $G$ contains at least two cycles.
+\noindent\emph{Answer} : To solve this problem, we can perform DFS search on the graph and return a number of cycle detected. To determine a cycle, we need to maintain a list of visited vertices to indicate the order of DFS. Once we have reached a vertice that have already been visited, that means we detected a cycle. The algorithm is shown as follows:
+\begin{algorithmic}
+	\State \textbf{Algorithm} DetectCycle($V,E,n,m$)
+	\State \textbf{Input}: $n$ vertices $V$, and $m$ edges $E$. The graph is represented by link list. The link list is named as $link$ with size of $links$
+	\State \textbf{output}: The number of cycles detected.
+	\State 
+	\State $visited\gets$ empty bool list with length of $n$ and initial value of False
+	\For{$i\gets0$ to $n$}
+		\If {$indegree(V[i])$=$0$}
+			\State $start\gets i$ \Comment Let the node with no $in$ $degree$ to be the start
+		\EndIf
+	\EndFor
+	\State \Return DFS($start$) \Comment Start from the initial node.
+	\State 
+	\State \textbf{def} DFS($x$) \Comment $x$ is the index of vertice to be search in this call stack
+	\If {$x.links = 0$}
+	\State \Return $0$
+	\Else
+	\State $cycles\gets0$
+	\For{$i\gets 0$ to $x.links$}
+	\If{$visited[x.link[i]]$}
+	\State\Return 1;
+	\Else
+	\State $visited[x.link[i]]\gets$ True 
+	\State $cycles\gets cycles +$DFS($x.link[i]$)
+	\EndIf
+	\EndFor
+	\State \Return $cycles$
+	\EndIf
+\end{algorithmic}
+
+
+\section{Maximal Independent Set}
+An \emph{independent set} $I$ of an undirected graph $G=(V,E)$ is a subset $I\subseteq V$ such that if $u,v \in I$, then $(u,v)\not \in E$. A \emph{maximal independent set} $M$ is an independent set which cannot have any vertices added to it without losing the independent set property. Describe an efficient algorithm to compute the maximal independent set of such $G$.
+
+\noindent\emph{Answer} : Since the question defines the \emph{independent set} as those 
+
+\section{Application: Procrastinator's Sort}
+\noindent\emph{Answer} : 
+
+\section{Application: Zombie Apocalypse}
+\noindent\emph{Answer} : 
+
+\section{EECS454 only}
+\subsection{R-17.2}
+Use a truth table to convert the Boolean formula $B=(a\leftrightarrow(b+c))$ into an equivalent formula in CNF. Show the truth table and the intermediate DNF formula for $\overline{B}$
+\subsection{C-17.7}
+Consider the 2SAT version of the CNF-SAT problem, in which every clause in the given formula $S$ has exactly two literals. Note that any clause of the form $(a + b)$ can be thought of as two implications, $(\overline{a} \rightarrow b)$ and $(\overline{b} \rightarrow a)$. Consider a graph $G$ from $S$, such that each vertex in $G$ is associated with a variable, $x$, in $S$, or its negation, $\overline{x}$. Let there be a directed edge in $G$ from $\overline{a}$ to $b$ for each clause equivalent to $(\overline{a} \rightarrow b)$. Show that $S$ is not satisfiable if and only if there is a variable $x$ such that there is a path in $G$ from $x$ to $\overline{x}$ and a path from $\overline{x}$ to $x$. Derive from this rule a polynomial-time algorithm for solving this special case of the CNF-SAT problem. What is the running time of your algorithm?
+\subsection{C-17.8}
+Suppose an oracle has given you a magic computer, $C$, that when given any Boolean formula $B$ in CNF will tell you in one step whether $B$ is satisfiable. Show how to use $C$ to construct an actual assignment of satisfying Boolean values to the variables in any satisfiable formula $B$. How many calls do you need to make to $C$ in the worst case in order to do this?
 \end{document}
