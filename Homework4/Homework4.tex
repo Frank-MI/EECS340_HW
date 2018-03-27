@@ -98,12 +98,14 @@ Based on the discussion above, the statement made by the question stands.
 \begin{algorithmic}
 	\State \textbf{Algorithm} DetectCycle($V,E,n,m$)
 	\State \textbf{Input}: $n$ vertices $V$, and $m$ edges $E$. The graph is represented by link list. The link list is named as $link$ with size of $links$
-	\State \textbf{output}: The number of cycles detected.
+	\State \textbf{Output}: The number of cycles detected.
 	\State 
 	\State $visited\gets$ empty bool list with length of $n$ and initial value of False
+	\State $smallest\gets \infty$
 	\For{$i\gets0$ to $n$}
-		\If {$indegree(V[i])$=$0$}
-			\State $start\gets i$ \Comment Let the node with no $in$ $degree$ to be the start
+		\If {$indegree(V[i])<smallest$}
+			\State $smallest\gets indegree(V[i])$
+			\State $start\gets i$ \Comment Let the node with smallest $in$ $degree$ to be the start
 		\EndIf
 	\EndFor
 	\State \Return DFS($start$) \Comment Start from the initial node.
@@ -129,19 +131,143 @@ Based on the discussion above, the statement made by the question stands.
 \section{Maximal Independent Set}
 An \emph{independent set} $I$ of an undirected graph $G=(V,E)$ is a subset $I\subseteq V$ such that if $u,v \in I$, then $(u,v)\not \in E$. A \emph{maximal independent set} $M$ is an independent set which cannot have any vertices added to it without losing the independent set property. Describe an efficient algorithm to compute the maximal independent set of such $G$.
 
-\noindent\emph{Answer} : Since the question defines the \emph{independent set} as those 
+\noindent\emph{Answer} : The definition of \emph{maximal independent set} $S$ is equivalent to: for $v\in V$, one of the following is true:
+\begin{enumerate}
+	\item $v\in S$,
+	\item $N(v)\cap S \not = \emptyset$, where $N(v)$ denotes the neighbors of $v$.
+\end{enumerate}
 
+Thus, using the following method could find a single maximal independent set:
+\begin{enumerate}
+	\item Initialize $I$ to an empty set,
+	\item While $V$ is not empty:
+		\subitem Choose a node $v\in V$;
+		\subitem Add $v$ to the set $I$;
+		\subitem Remove from $V$ the node $v$ and all its neighbors.
+	\item Return $I$.
+\end{enumerate}
+
+The algorithm could be described as follows:
+\begin{algorithmic}
+	\State \textbf{Algorithm} MIS($V,E,n,m$)
+	\State \textbf{Input}: $n$ vertices $V$, and $m$ edges $E$. The graph is represented by link list. The link list is named as $link$ with size of $links$
+	\State \textbf{Output}: The \emph{Maximal independent set} $S$
+	\State $S\gets$ empty set
+	\While{$not(V.IsEmpty())$}
+		\For{\textbf{each} $v\in V$}
+			\State $S.append(v)$
+			\For{\textbf{each} $neighbor\in v.link$}
+				\State $V.remove(neighbor)$
+			\EndFor
+			\State $V.remove(v)$
+		\EndFor
+	\EndWhile
+\end{algorithmic}
+
+The runtime of this algorithm is $O(m)$ because in the worst case we need to check all edges.
 \section{Application: Procrastinator's Sort}
-\noindent\emph{Answer} : 
+\noindent\emph{Answer} : Since this problem have limited the importance of questions on an integer scale from $1$ to $10$, we can first put the questions into $10$ buckets and then do Topological Sort. The algorithm can be described as follows:
+\begin{algorithmic}
+	\State \textbf{Algorithm} TopoSortWithOrder($V,E,n,m$)
+	\State \textbf{Input}: $n$ vertices $V$, and $m$ edges $E$. The graph is represented by link list. The link list is named as $link$ with size of $links$
+	\State \textbf{Output}: The order $S$ of Socrastes to solve questions.
+	
+	\State $buckets\gets10$ empty lists
+	\For{$i\gets0$ to $n$}
+		\State $buckets[V[i].weight].append(V[i])$ \Comment Build the buckets
+	\EndFor
+	
+	\While{$V.size>0$} \Comment Not all the questions are in the list
+		\State $Flag \gets False$
+		\For{$i\gets 1$ to $10$}\Comment Search from the first bucket to the last
+			\For{$j\gets 0$ to $bucket[i].size$}
+				\If{$bucket[i,j].indegree=0$}\Comment Can be solved
+					\State $S.append(bucket[i,j])$
+					\State $V.remove(bucket[i,j])$ \Comment Remove the vertice
+					\State $E.remove(bucket[i,j])$ \Comment Remove the edges to this vertice
+					\State $Flag\gets True$
+					\State \textbf{break}
+				\EndIf
+			\EndFor
+			\If{$Flag$}
+				\State \textbf{break}
+			\EndIf
+		\EndFor
+	\EndWhile
+	\State \Return $S$
+\end{algorithmic}
 
+Since in this problem we use buckets to deal with the weights, it will only add constant time to the topological sorting, so that the time complexity is still $O(m+n)$.
 \section{Application: Zombie Apocalypse}
-\noindent\emph{Answer} : 
+\noindent\emph{Answer} : Since the problem did not give any limitations to the runtime, we can complete this problem by brute force:
 
+\begin{algorithmic}
+	\State \textbf{Algorithm} FindMaxTime($M,m,n$)
+	\State \textbf{Input}: An matrix $M$ as indicated in the question, with $m,n$ as its size.
+	\State \textbf{Output}: The time for all humans to become zombies.
+	\State $Time\gets$ an $m\times n$ integer matrix with initial value of $0$
+	\State $NumberOfHumans\gets0$
+	\For{$i\gets 0$ to $n$}
+		\For{$j\gets 0$ to $n$}
+			\If{$M(i,j)=H$}\Comment This cell is a human
+				\State $NumberOfHumans \gets NumberOfHumans + 1$
+			\EndIf
+			\If{$M(i,j)=Z$}
+				\State $Time(i,j)=0$ \Comment Mark initial zombie as infected in time 0
+			\EndIf
+		\EndFor
+	\EndFor
+	\State
+	\State $CurrentTime \gets 1$
+	\While{$NumberOfHumans>0$}\Comment Start the spread
+		\For{$i\gets 0$ to $n$}
+			\For{$j\gets 0$ to $n$}
+				\If{$M(i,j)=Z$}\Comment This cell is a zombie
+					\If{$M(i-1,j)=H$} \Comment Four directions of spread
+						\State $NumberOfHumans\gets NumberOfHumans -1$
+						\State $Time(i-1,j)=CurrentTime$ 
+					\EndIf
+					\If{$M(i,j-1)=H$}
+						\State $NumberOfHumans\gets NumberOfHumans -1$
+						\State $Time(i,j-1)=CurrentTime$ 
+					\EndIf
+					\If{$M(i+1,j)=H$}
+						\State $NumberOfHumans\gets NumberOfHumans -1$
+						\State $Time(i+1,j)=CurrentTime$ 
+					\EndIf
+					\If{$M(i,j+1)=H$}
+						\State $NumberOfHumans\gets NumberOfHumans -1$
+						\State $Time(i,j+1)=CurrentTime$ 
+					\EndIf
+				\EndIf
+			\EndFor
+		\EndFor
+		\State $CurrentTime\gets CurrentTime +1$
+	\EndWhile
+	\State
+	\State $MaxTime \gets 0$
+	\For{$i\gets 0$ to $n$}
+		\For{$j\gets 0$ to $n$}
+			\If{$M(i,j)=Z$}
+				\If{$Time(i,j)>MaxTime$}
+					\State $MaxTime \gets Time(i,j)$
+				\EndIf
+			\EndIf
+		\EndFor
+	\EndFor
+	\State \Return $MaxTime$
+\end{algorithmic}
 \section{EECS454 only}
 \subsection{R-17.2}
 Use a truth table to convert the Boolean formula $B=(a\leftrightarrow(b+c))$ into an equivalent formula in CNF. Show the truth table and the intermediate DNF formula for $\overline{B}$
+
+\noindent\emph{Answer} : 
 \subsection{C-17.7}
 Consider the 2SAT version of the CNF-SAT problem, in which every clause in the given formula $S$ has exactly two literals. Note that any clause of the form $(a + b)$ can be thought of as two implications, $(\overline{a} \rightarrow b)$ and $(\overline{b} \rightarrow a)$. Consider a graph $G$ from $S$, such that each vertex in $G$ is associated with a variable, $x$, in $S$, or its negation, $\overline{x}$. Let there be a directed edge in $G$ from $\overline{a}$ to $b$ for each clause equivalent to $(\overline{a} \rightarrow b)$. Show that $S$ is not satisfiable if and only if there is a variable $x$ such that there is a path in $G$ from $x$ to $\overline{x}$ and a path from $\overline{x}$ to $x$. Derive from this rule a polynomial-time algorithm for solving this special case of the CNF-SAT problem. What is the running time of your algorithm?
+
+\noindent\emph{Answer} : 
 \subsection{C-17.8}
 Suppose an oracle has given you a magic computer, $C$, that when given any Boolean formula $B$ in CNF will tell you in one step whether $B$ is satisfiable. Show how to use $C$ to construct an actual assignment of satisfying Boolean values to the variables in any satisfiable formula $B$. How many calls do you need to make to $C$ in the worst case in order to do this?
+
+\noindent\emph{Answer} : 
 \end{document}
