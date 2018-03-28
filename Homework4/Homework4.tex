@@ -261,13 +261,52 @@ Since in this problem we use buckets to deal with the weights, it will only add 
 \subsection{R-17.2}
 Use a truth table to convert the Boolean formula $B=(a\leftrightarrow(b+c))$ into an equivalent formula in CNF. Show the truth table and the intermediate DNF formula for $\overline{B}$
 
-\noindent\emph{Answer} : 
+\noindent\emph{Answer} : The truth table can be shown as follows Table.\ref{tab:tab1}
+\begin{table}[!hbp]
+	\centering
+	\caption{Truth table for $B$}
+	\begin{tabular}{c|c|c|c}
+		\hline 
+		\hline
+		a	&b	&c	&$B=(a\leftrightarrow(b+c))$\\
+		\hline
+		0	&0	&0	&1	\\
+		\hline
+		0	&0	&1	&0	\\
+		\hline
+		0	&1	&0	&0	\\
+		\hline
+		0	&1	&1	&1	\\
+		\hline
+		1	&0	&0	&0	\\
+		\hline
+		1	&0	&1	&1	\\
+		\hline
+		1	&1	&0	&0	\\
+		\hline
+		1	&1	&1	&1	\\
+		\hline
+		\hline
+		\end{tabular}
+		\label{tab:tab1}
+\end{table}
+
+So that the CNF formula for $B=(a+b+\overline{c})\cdot(a+\overline{b}+c)\cdot(\overline{a}+b+c)\cdot(\overline{a}+\overline{b}+c)$, and the DNF formula for $\overline{B}=(\overline{a}\cdot\overline{b}\cdot c)+(\overline{a}\cdot b\cdot\overline{c})+(a\cdot\overline{b}\cdot\overline{c})+(a\cdot b\cdot\overline{c})$.
+
 \subsection{C-17.7}
 Consider the 2SAT version of the CNF-SAT problem, in which every clause in the given formula $S$ has exactly two literals. Note that any clause of the form $(a + b)$ can be thought of as two implications, $(\overline{a} \rightarrow b)$ and $(\overline{b} \rightarrow a)$. Consider a graph $G$ from $S$, such that each vertex in $G$ is associated with a variable, $x$, in $S$, or its negation, $\overline{x}$. Let there be a directed edge in $G$ from $\overline{a}$ to $b$ for each clause equivalent to $(\overline{a} \rightarrow b)$. Show that $S$ is not satisfiable if and only if there is a variable $x$ such that there is a path in $G$ from $x$ to $\overline{x}$ and a path from $\overline{x}$ to $x$. Derive from this rule a polynomial-time algorithm for solving this special case of the CNF-SAT problem. What is the running time of your algorithm?
 
 \noindent\emph{Answer} : 
+	First we need to prove the iff:
+	
+	($\Longrightarrow$): Since there is a path from $x$ to $\overline{x}$ and an other path from $\overline{x}$ to $x$, it can be simply concluded that $G$ is equivalent to $(\overline{x}\rightarrow x)\cdot(x\rightarrow\overline{x})$, which is the same as $(x+x)=x$. However, it is only related to one literal, which is contradict to the definition of $S$, so that $S$ is not satisfied.
+	
+	($\Longleftarrow$): Since we know $S$ is not satisfiable, we can conclude that the graph $G$ can be derived into a expression that is only related to $x$, because the nodes in $G$ is related to either $x$ or $\overline{x}$. Thus, we can assert that $G$ can be represented by $(\overline{x}\rightarrow x)\cdot(x\rightarrow\overline{x})$ because the directed edges in $G$ can only be represented in ways like $(a\rightarrow b)$. $(\overline{x}\rightarrow x)\cdot(x\rightarrow\overline{x})$ is equivalent to a path from $x$ to $\overline{x}$ and an other path from $\overline{x}$ to $x$.
+	
+	The polynomial-time algorithm is described as follows: Suppose the two literals are $a and b $. First, try $a=0,b=0$, then try $a=1,b=0$, then $a=0,b=1$, finally $a=1,b=1$. By enumerating all the possible cases for $a$ and $b$, we can examine whether this 2SAT problem can be satisfied. The running time of this algorithm is $O(1)$.
 \subsection{C-17.8}
 Suppose an oracle has given you a magic computer, $C$, that when given any Boolean formula $B$ in CNF will tell you in one step whether $B$ is satisfiable. Show how to use $C$ to construct an actual assignment of satisfying Boolean values to the variables in any satisfiable formula $B$. How many calls do you need to make to $C$ in the worst case in order to do this?
 
 \noindent\emph{Answer} : 
+	Suppose the Boolean formula $B$ have $n$ different literals, we can then enumerate all possible cases for these $n$ different literals and use $C$ to examine whether they can satisfy $B$. Since there are $2^n$ different cases for $C$ to compute, we need to call $C$ for $2^n$ times.
 \end{document}
