@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.10.7)  16 APR 2018 16:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.10.7)  24 APR 2018 15:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -635,7 +635,15 @@ Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
 Package: algpseudocode 
 
 Document Style - pseudocode environments for use with the `algorithmicx' style
-) (c:/texlive/2017/texmf-dist/tex/latex/geometry/geometry.sty
+) (c:/texlive/2017/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count127
+\float@exts=\toks24
+\float@box=\box31
+\@float@everytoks=\toks25
+\@floatcapt=\box32
+)
+(c:/texlive/2017/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2010/09/12 v5.6 Page Geometry
 
 (c:/texlive/2017/texmf-dist/tex/generic/oberdiek/ifpdf.sty
@@ -648,9 +656,9 @@ Package ifvtex Info: VTeX not detected.
 (c:/texlive/2017/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
-\Gm@cnth=\count127
-\Gm@cntv=\count128
-\c@Gm@tempcnt=\count129
+\Gm@cnth=\count128
+\Gm@cntv=\count129
+\c@Gm@tempcnt=\count130
 \Gm@bindingoffset=\dimen137
 \Gm@wd@mp=\dimen138
 \Gm@odd@mp=\dimen139
@@ -659,35 +667,35 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@layoutheight=\dimen142
 \Gm@layouthoffset=\dimen143
 \Gm@layoutvoffset=\dimen144
-\Gm@dimlist=\toks24
+\Gm@dimlist=\toks26
 ) (./Homework6.aux)
 \openout1 = `Homework6.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
 (c:/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count130
+\scratchcounter=\count131
 \scratchdimen=\dimen145
-\scratchbox=\box31
-\nofMPsegments=\count131
-\nofMParguments=\count132
-\everyMPshowfont=\toks25
-\MPscratchCnt=\count133
+\scratchbox=\box33
+\nofMPsegments=\count132
+\nofMParguments=\count133
+\everyMPshowfont=\toks27
+\MPscratchCnt=\count134
 \MPscratchDim=\dimen146
-\MPnumerator=\count134
-\makeMPintoPDFobject=\count135
-\everyMPtoPDFconversion=\toks26
+\MPnumerator=\count135
+\makeMPintoPDFobject=\count136
+\everyMPtoPDFconversion=\toks28
 ) (c:/texlive/2017/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2017/03/19 v0.25 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -768,16 +776,16 @@ e
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Try loading font information for U+lasy on input line 26.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 27.
 (c:/texlive/2017/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 26.
+LaTeX Font Info:    Try loading font information for U+msa on input line 27.
 
 (c:/texlive/2017/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 26.
+LaTeX Font Info:    Try loading font information for U+msb on input line 27.
 
 (c:/texlive/2017/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -785,103 +793,180 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 <Figure/1a1.jpg, id=1, 4175.6pt x 3131.7pt>
 File: Figure/1a1.jpg Graphic file (type jpg)
  <use Figure/1a1.jpg>
-Package pdftex.def Info: Figure/1a1.jpg used on input line 35.
-(pdftex.def)             Requested size: 189.70874pt x 142.25842pt.
+Package pdftex.def Info: Figure/1a1.jpg used on input line 36.
+(pdftex.def)             Requested size: 215.00478pt x 161.2294pt.
 
 <Figure/1a2.jpg, id=2, 4175.6pt x 3131.7pt>
 File: Figure/1a2.jpg Graphic file (type jpg)
  <use Figure/1a2.jpg>
-Package pdftex.def Info: Figure/1a2.jpg used on input line 41.
-(pdftex.def)             Requested size: 189.70874pt x 142.25842pt.
+Package pdftex.def Info: Figure/1a2.jpg used on input line 42.
+(pdftex.def)             Requested size: 215.00478pt x 161.2294pt.
 
 <Figure/1a3.jpg, id=3, 4175.6pt x 3131.7pt>
 File: Figure/1a3.jpg Graphic file (type jpg)
  <use Figure/1a3.jpg>
-Package pdftex.def Info: Figure/1a3.jpg used on input line 48.
-(pdftex.def)             Requested size: 189.70874pt x 142.25842pt.
+Package pdftex.def Info: Figure/1a3.jpg used on input line 49.
+(pdftex.def)             Requested size: 215.00478pt x 161.2294pt.
 
 <Figure/1a4.jpg, id=4, 4175.6pt x 3131.7pt>
 File: Figure/1a4.jpg Graphic file (type jpg)
  <use Figure/1a4.jpg>
-Package pdftex.def Info: Figure/1a4.jpg used on input line 54.
-(pdftex.def)             Requested size: 189.70874pt x 142.25842pt.
+Package pdftex.def Info: Figure/1a4.jpg used on input line 55.
+(pdftex.def)             Requested size: 215.00478pt x 161.2294pt.
 
-<Figure/1a5.jpg, id=5, 4175.6pt x 3131.7pt>
-File: Figure/1a5.jpg Graphic file (type jpg)
- <use Figure/1a5.jpg>
-Package pdftex.def Info: Figure/1a5.jpg used on input line 61.
-(pdftex.def)             Requested size: 189.70874pt x 142.25842pt.
-
-<Figure/1a6.jpg, id=6, 4175.6pt x 3131.7pt>
-File: Figure/1a6.jpg Graphic file (type jpg)
- <use Figure/1a6.jpg>
-Package pdftex.def Info: Figure/1a6.jpg used on input line 67.
-(pdftex.def)             Requested size: 189.70874pt x 142.25842pt.
-
-<Figure/1a7.jpg, id=7, 4175.6pt x 3131.7pt>
-File: Figure/1a7.jpg Graphic file (type jpg)
- <use Figure/1a7.jpg>
-Package pdftex.def Info: Figure/1a7.jpg used on input line 74.
-(pdftex.def)             Requested size: 189.70874pt x 142.25842pt.
-
-<Figure/1a8.jpg, id=8, 4175.6pt x 3131.7pt>
-File: Figure/1a8.jpg Graphic file (type jpg)
- <use Figure/1a8.jpg>
-Package pdftex.def Info: Figure/1a8.jpg used on input line 80.
-(pdftex.def)             Requested size: 189.70874pt x 142.25842pt.
-
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 33--84
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 34--59
 [][] [] 
  []
 
 
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 33--84
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 34--59
 [] [] 
  []
 
+<Figure/1a5.jpg, id=5, 4175.6pt x 3131.7pt>
+File: Figure/1a5.jpg Graphic file (type jpg)
+ <use Figure/1a5.jpg>
+Package pdftex.def Info: Figure/1a5.jpg used on input line 63.
+(pdftex.def)             Requested size: 215.00478pt x 161.2294pt.
 
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 33--84
-[] [] 
+<Figure/1a6.jpg, id=6, 4175.6pt x 3131.7pt>
+File: Figure/1a6.jpg Graphic file (type jpg)
+ <use Figure/1a6.jpg>
+Package pdftex.def Info: Figure/1a6.jpg used on input line 69.
+(pdftex.def)             Requested size: 215.00478pt x 161.2294pt.
+
+<Figure/1a7.jpg, id=7, 4175.6pt x 3131.7pt>
+File: Figure/1a7.jpg Graphic file (type jpg)
+ <use Figure/1a7.jpg>
+Package pdftex.def Info: Figure/1a7.jpg used on input line 76.
+(pdftex.def)             Requested size: 215.00478pt x 161.2294pt.
+
+<Figure/1a8.jpg, id=8, 4175.6pt x 3131.7pt>
+File: Figure/1a8.jpg Graphic file (type jpg)
+ <use Figure/1a8.jpg>
+Package pdftex.def Info: Figure/1a8.jpg used on input line 82.
+(pdftex.def)             Requested size: 215.00478pt x 161.2294pt.
+
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 61--86
+[][] [] 
  []
 
 
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 33--84
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 61--86
 [] [] 
  []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [1
 
-{c:/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+{c:/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./Figure/1a1.jp
+g> <./Figure/1a2.jpg> <./Figure/1a3.jpg> <./Figure/1a4.jpg>]
+<Figure/1b1.png, id=20, 399.74344pt x 303.38344pt>
+File: Figure/1b1.png Graphic file (type png)
+ <use Figure/1b1.png>
+Package pdftex.def Info: Figure/1b1.png used on input line 95.
+(pdftex.def)             Requested size: 189.70874pt x 143.979pt.
+
+<Figure/1b2.png, id=21, 399.74344pt x 303.38344pt>
+File: Figure/1b2.png Graphic file (type png)
+ <use Figure/1b2.png>
+Package pdftex.def Info: Figure/1b2.png used on input line 101.
+(pdftex.def)             Requested size: 189.70874pt x 143.979pt.
+
+<Figure/1b3.png, id=22, 399.74344pt x 303.38344pt>
+File: Figure/1b3.png Graphic file (type png)
+ <use Figure/1b3.png>
+Package pdftex.def Info: Figure/1b3.png used on input line 108.
+(pdftex.def)             Requested size: 189.70874pt x 143.979pt.
+
+<Figure/1b4.png, id=23, 399.74344pt x 303.38344pt>
+File: Figure/1b4.png Graphic file (type png)
+ <use Figure/1b4.png>
+Package pdftex.def Info: Figure/1b4.png used on input line 114.
+(pdftex.def)             Requested size: 189.70874pt x 143.979pt.
+
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 93--118
+[][] [] 
+ []
+
+
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 93--118
+[] [] 
+ []
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[2 <./Figure/1a1.jpg> <./Figure/1a2.jpg> <./Figure/1a3.jpg> <./Figure/1a4.jpg> 
-<./Figure/1a5.jpg> <./Figure/1a6.jpg> <./Figure/1a7.jpg> <./Figure/1a8.jpg>]
-(./Homework6.aux) ) 
+[2 <./Figure/1a5.jpg> <./Figure/1a6.jpg> <./Figure/1a7.jpg> <./Figure/1a8.jpg>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[3 <./Figure/1b1.png> <./Figure/1b2.png> <./Figure/1b3.png> <./Figure/1b4.png>]
+<Figure/3.png, id=33, 429.85594pt x 249.18094pt>
+File: Figure/3.png Graphic file (type png)
+ <use Figure/3.png>
+Package pdftex.def Info: Figure/3.png used on input line 156.
+(pdftex.def)             Requested size: 303.53708pt x 175.95773pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[4 <./Figure/3.png>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[5]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[6]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[7] (./Homework6.aux) ) 
 Here is how much of TeX's memory you used:
- 5942 strings out of 492995
- 78438 string characters out of 6136402
- 178448 words of memory out of 5000000
- 9329 multiletter control sequences out of 15000+600000
- 12135 words of font info for 48 fonts, out of 8000000 for 9000
+ 6069 strings out of 492995
+ 80210 string characters out of 6136402
+ 183859 words of memory out of 5000000
+ 9443 multiletter control sequences out of 15000+600000
+ 13102 words of font info for 51 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,10n,43p,287b,295s stack positions out of 5000i,500n,10000p,200000b,80000s
-<c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mbx12.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.p
-fb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/te
-xlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2017
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2017/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on Homework6.pdf (2 pages, 12326843 bytes).
+ 39i,10n,43p,926b,338s stack positions out of 5000i,500n,10000p,200000b,80000s
+<c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmbx10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12
+.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><c
+:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><c:/tex
+live/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2017
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/texlive/2017/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2017/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmr12.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmr17.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pf
+b><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texli
+ve/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2017/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2017/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on Homework6.pdf (7 pages, 12544449 bytes).
 PDF statistics:
- 43 PDF objects out of 1000 (max. 8388607)
- 24 compressed objects within 1 object stream
+ 101 PDF objects out of 1000 (max. 8388607)
+ 63 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 66 words of extra memory for PDF output out of 10000 (max. 10000000)
 
